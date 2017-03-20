@@ -1,29 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage 
+             NavigationPage.HasNavigationBar="False"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AnyGrade"
              x:Class="AnyGrade.MainPage"
              >
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0, 20, 0, 0"
+                    />
+    </ContentPage.Padding>
 
     <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="65" />
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="50" />
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-            <Frame OutlineColor="Black" Grid.Row="0" Grid.ColumnSpan="2">
-                <Label Text= "My Courses" FontSize="20" TextColor="Black" HorizontalTextAlignment="Center"/>
-            </Frame>
+        <Frame OutlineColor="Black" Grid.Row="0" Grid.ColumnSpan="2">
+            <Label Text= "My Courses" FontSize="20" TextColor="Black" HorizontalTextAlignment="Center"/>
+        </Frame>
 
-            <Frame OutlineColor="Black" Grid.Row="1" Grid.ColumnSpan="2">
+        <Frame OutlineColor="Black" Grid.Row="1" Grid.ColumnSpan="2">
 
-            <ListView x:Name="CourseList" ItemsSource="{Binding Courses}">
+            <ListView x:Name="CourseList" ItemsSource="{Binding GetCourseList}" HasUnevenRows="True"
+                      ItemSelected="CourseList_ItemSelected"
+                      ItemTapped="CourseList_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -36,24 +45,27 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="50" />
                                 </Grid.ColumnDefinitions>
-                                
-                                    <!--THIS LAYOUT ENSURES THAT COURSE LISTINGS ARE PROPERLY FORMATTED-->
-                                <Label FontSize="14" Text="{Binding name}" TextColor="Black" Grid.Row="0" Grid.Column="0"/>
 
-                                    <!--THIS LAYOUT ENSURES THAT COURSE LISTINGS ARE PROPERLY FORMATTED-->
-                                <Button FontSize="14" Text="X" TextColor="Black" Grid.Row="0" Grid.Column="1"/>
+                                <!--THIS LAYOUT ENSURES THAT COURSE LISTINGS ARE PROPERLY FORMATTED-->
+                                <Label x:Name="CourseLabel" FontSize="16" Text="{Binding Name}" 
+                                    TextColor="Black" VerticalOptions="Center"
+                                    Grid.Row="0" Grid.Column="0"/>
+
+                                <Button FontSize="14" Text="X" TextColor="Black" 
+                                    Clicked="DeleteCourse_Clicked" HorizontalOptions="EndAndExpand"
+                                    Grid.Row="0" Grid.Column="1" CommandParameter="{Binding .}"/>
                             </Grid>
-                            
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            </Frame>
+        </Frame>
 
-            <Button Text="+" FontSize="20" TextColor="Green" BackgroundColor="Silver"
+        <Button Text="+" FontSize="20" TextColor="Green" BackgroundColor="Silver"
                     HorizontalOptions="Fill" VerticalOptions="Center"
-                   Grid.Row="2" Grid.ColumnSpan="2"/>
-        </Grid>
-    
+                   Grid.Row="2" Grid.ColumnSpan="2"
+                   Clicked="Add_Course"/>
+    </Grid>
 </ContentPage>

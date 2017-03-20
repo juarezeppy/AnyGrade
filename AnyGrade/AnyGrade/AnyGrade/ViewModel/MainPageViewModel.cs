@@ -1,48 +1,43 @@
-﻿using System;
+﻿using System.ComponentModel;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System;
 
 namespace AnyGrade.ViewModel
 {
-    public class MainPageViewModel
+    class MainPageViewModel
     {
-        //this constructor takes a class object 
-        //and then initializes its own member variable with it
+        public string Name { get; set; }
 
-        //public MainPageViewModel(Course course)
-        //{
-        //    courseName = course.name;
-        //}
-//        public string courseName { get; set; }
+        public ObservableCollection<Course> Courses;
 
-        public List<Course> Courses {
-            get {
-                return new List<Course>() {
-                    new Course() {name = "ICS 6D" },
-                    new Course() {name = "CS 122A"},
-                    new Course() {name = "ICS 139W"}
-                };
+        //add observablecollection of assignments
+
+        //This is now bound to the view's listview
+        public ObservableCollection<Course> GetCourseList
+        {
+            get
+            {
+                return Courses;
             }
         }
 
-
-        /*
-         * This method creates and returns a course object
-         * 
-         * var course allocates memory for the object then initializes
-         * member variable
-         */
-        public static Course GetCourse()
+        //no arg constructor
+        public MainPageViewModel()
         {
-            var course = new Course()
-            {
-                name = "COMP SCI"
-            };
-
-            return course;                  
+            Courses = new ObservableCollection<Course>();
         }
 
+        public void AddCourse()
+        {
+            Course NewCourse = new Course();
+            Courses.Add(NewCourse);
+        }
+
+        internal void RemoveCourse(Course SelectedCourse)
+        {
+
+            Courses.Remove(SelectedCourse);
+        }
     }
 }

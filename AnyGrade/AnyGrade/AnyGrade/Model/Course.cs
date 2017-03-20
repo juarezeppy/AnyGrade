@@ -8,6 +8,20 @@ namespace AnyGrade
 {
     public class Course
     {
-        public string name { get; set; }
+        public string Name { get; set; }
+
+        public List<double> Assignments;
+
+        public Course()
+        {
+            Name = "New Course";
+
+            //add a test assignment grade
+            Assignments = new List<double>
+            {
+                5.0
+            };
+        }
+
     }
 }

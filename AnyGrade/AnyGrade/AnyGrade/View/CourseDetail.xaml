@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+             NavigationPage.HasNavigationBar="False"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AnyGrade.View.CourseDetail">
+
+  
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Frame OutlineColor="Black" Grid.Row="0" Grid.ColumnSpan="2">
+            <Label Text= "{Binding Name}" FontSize="20" TextColor="Black" HorizontalTextAlignment="Center"/>
+        </Frame>
+
+        <Frame OutlineColor="Black" Grid.Row="1" Grid.ColumnSpan="2">
+            <!--THIS LAYOUT ENSURES THAT COURSE LISTINGS ARE PROPERLY FORMATTED-->
+            <Label x:Name="CourseLabel" FontSize="16" Text="Insert Details Here" 
+                TextColor="Black" VerticalOptions="Center"
+                Grid.Row="1" Grid.ColumnSpan="2"/>
+        </Frame>
+
+        <Frame OutlineColor="Black" Grid.Row="2" Grid.Column="0">
+            <Button Text="+" FontSize="14" TextColor="Green" BackgroundColor="Silver"
+                    HorizontalOptions="Fill" VerticalOptions="Center"
+                   />
+        </Frame>
+
+        <Frame OutlineColor="Black" Grid.Row="2" Grid.Column="1">
+            <Button Text="Calculate Grade" FontSize="14" TextColor="Green" BackgroundColor="Silver"
+                    HorizontalOptions="Fill" VerticalOptions="Center"
+                   />
+        </Frame>
+        
+    </Grid>
+</ContentPage>
