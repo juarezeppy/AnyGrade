@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
+using System.Linq;
+using AnyGrade.Model;
 
 namespace AnyGrade.ViewModel
 {
     class MainPageViewModel
     {
-        public string Name { get; set; }
-
+        //A list of course objects which holds course data, etc.
         public ObservableCollection<Course> Courses;
-
-        //add observablecollection of assignments
 
         //This is now bound to the view's listview
         public ObservableCollection<Course> GetCourseList
@@ -38,6 +37,11 @@ namespace AnyGrade.ViewModel
         {
 
             Courses.Remove(SelectedCourse);
+        }
+
+        public void CalculateTotalTopicWeights()
+        {
+            
         }
     }
 }

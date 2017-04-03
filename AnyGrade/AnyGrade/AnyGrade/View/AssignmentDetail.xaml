@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+             NavigationPage.HasNavigationBar="False"   
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AnyGrade.View.AssignmentDetail">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0, 20, 0, 0"
+                    />
+    </ContentPage.Padding>
+
+    <StackLayout>
+        <Entry x:Name="RenameAssignment" Placeholder="Rename Course"
+                IsVisible="False"
+               Completed="RenameAssignment_OnCompleted"/>
+
+        <Grid x:Name="GridLayout">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame OutlineColor="Black" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#333333">
+                <Label x:Name="AssignmentsPageHeader" FontSize="20" TextColor="White" HorizontalTextAlignment="Center"/>
+            </Frame>
+
+            <Frame OutlineColor="Black" Grid.Row="1" Grid.ColumnSpan="2">
+
+                <ListView x:Name="AssignmentList"  HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="140" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="75" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--THIS LAYOUT ENSURES THAT COURSE LISTINGS ARE PROPERLY FORMATTED-->
+                                    <Label x:Name="AssignmentLabel" FontSize="14" Text="{Binding AssignmentName}" 
+                                    TextColor="Black" VerticalOptions="Center"
+                                    Grid.Row="0" Grid.Column="0" />
+
+                                    <Entry x:Name="AssignmentGradeEntry" FontSize="14"
+                                       TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"
+                                       Placeholder="   %   " Keyboard="Numeric"
+                                       Grid.Row="0" Grid.Column="1"
+                                       TextChanged="AssignmentGradeEntry_OnTextChanged"
+                                       Text="{Binding AssignmentGrade}" />
+
+                                    <Button FontSize="14" Text="X" Image="settings.png" Scale=".5"
+                                    HorizontalOptions="Center" VerticalOptions="Center"
+                                    Grid.Row="0" Grid.Column="2" 
+                                    Clicked="Button_AssignmentOptions" CommandParameter="{Binding .}"/>
+                                </Grid>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Frame>
+
+            <Button Text="+" FontSize="20" TextColor="Green" BackgroundColor="Silver"
+                    HorizontalOptions="Fill" VerticalOptions="Center"
+                   Grid.Row="2" Grid.ColumnSpan="2"
+                   Clicked="Button_AddAssignment"/>
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>

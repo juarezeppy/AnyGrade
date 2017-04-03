@@ -1,45 +1,150 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
-             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasNavigationBar="False"   
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AnyGrade.View.CourseDetail">
 
-  
-    <Grid>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0, 20, 0, 0"
+                    />
+    </ContentPage.Padding>
+    <StackLayout>
+        <Entry x:Name="renameTopic" Placeholder="Rename Course"
+                IsVisible="False"
+               Completed="RenameCourse_OnCompleted"/>
+
+        <Grid x:Name="GridLayout">
         <Grid.RowDefinitions>
             <RowDefinition Height="65" />
+            <RowDefinition Height="41" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="*"/>
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="120" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Frame OutlineColor="Black" Grid.Row="0" Grid.ColumnSpan="2">
-            <Label Text= "{Binding Name}" FontSize="20" TextColor="Black" HorizontalTextAlignment="Center"/>
+        <Frame OutlineColor="Black" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#333333">
+            <Label Text="{Binding CourseName}" FontSize="20" TextColor="White" HorizontalTextAlignment="Center"/>
         </Frame>
 
-        <Frame OutlineColor="Black" Grid.Row="1" Grid.ColumnSpan="2">
-            <!--THIS LAYOUT ENSURES THAT COURSE LISTINGS ARE PROPERLY FORMATTED-->
-            <Label x:Name="CourseLabel" FontSize="16" Text="Insert Details Here" 
-                TextColor="Black" VerticalOptions="Center"
-                Grid.Row="1" Grid.ColumnSpan="2"/>
-        </Frame>
+            <Frame OutlineColor="Black" Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#333333" 
+                   HorizontalOptions="Fill" VerticalOptions="Fill" Padding="0,14,0,0">
 
-        <Frame OutlineColor="Black" Grid.Row="2" Grid.Column="0">
-            <Button Text="+" FontSize="14" TextColor="Green" BackgroundColor="Silver"
-                    HorizontalOptions="Fill" VerticalOptions="Center"
-                   />
-        </Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-        <Frame OutlineColor="Black" Grid.Row="2" Grid.Column="1">
-            <Button Text="Calculate Grade" FontSize="14" TextColor="Green" BackgroundColor="Silver"
-                    HorizontalOptions="Fill" VerticalOptions="Center"
-                   />
+            <Label Text="Grade: " FontSize="10" TextColor="White" HorizontalTextAlignment="End"  VerticalTextAlignment="Start"
+                    Grid.Row="0" Grid.Column="0"  />
+            <Label x:Name="CourseGrade_Label" Text="{Binding CourseGrade} " FontSize="13" TextColor="Red" 
+                    HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+                    Grid.Row="0" Grid.Column="1"/>
+            <Label Text="Average: " FontSize="10" TextColor="White" HorizontalTextAlignment="End" VerticalTextAlignment="Start"
+                    Grid.Row="0" Grid.Column="2"/>
+            <Label Text="{Binding GradePercentage} " FontSize="13" TextColor="Red" 
+                    HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+                    Grid.Row="0" Grid.Column="3"/>
+        </Grid>
+
         </Frame>
         
+        <Frame OutlineColor="Black" Grid.Row="2" Grid.ColumnSpan="2">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="65" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="75" />
+                </Grid.ColumnDefinitions>
+
+                    <Label Text="Topic" FontSize="12" TextColor="Black" HorizontalTextAlignment="Center" 
+                   Grid.Row="0" Grid.Column="0" />
+                <Label Text="%" FontSize="12" TextColor="Black" HorizontalTextAlignment="Center"
+                   Grid.Row="0" Grid.Column="1" />
+                <Label Text="Average" FontSize="12" TextColor="Black" HorizontalTextAlignment="Center"
+                   Grid.Row="0" Grid.Column="2" />
+                <Label Text="Settings" FontSize="12" TextColor="Black" HorizontalTextAlignment="Center"
+                   Grid.Row="0" Grid.Column="3" />
+
+            </Grid>
+        </Frame>
+
+        <Frame OutlineColor="Black" Grid.Row="3" Grid.ColumnSpan="2">
+            <ListView x:Name="CourseList" ItemsSource="{Binding GetTopicList}" HasUnevenRows="True"
+                      ItemSelected="CourseList_ItemSelected"
+                      ItemTapped="CourseList_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--Nested grid-->
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="75" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--THIS LAYOUT ENSURES THAT COURSE LISTINGS ARE PROPERLY FORMATTED-->
+                                <Label x:Name="AssignmentTopic" FontSize="14" Text="{Binding topicName}" 
+                                    TextColor="Black" VerticalOptions="Center"
+                                    Grid.Row="0" Grid.Column="0"/>
+
+                                <Entry x:Name="AssignmentWeight" FontSize="14"
+                                       TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"
+                                       Placeholder="   %   " Keyboard="Numeric"
+                                       Grid.Row="0" Grid.Column="1"
+                                       TextChanged="AssignmentWeight_OnTextChanged"
+                                       Text="{Binding topicWeight}" />
+
+                                    <Label x:Name="AverageForTopic" FontSize="14" Text="{Binding average}"
+                                       TextColor="Black" VerticalOptions="Center"
+                                       Grid.Row="0" Grid.Column="2" />
+
+                                    <Button FontSize="14" Text="X" Image="settings.png" Scale=".5"
+                                    HorizontalOptions="Center" VerticalOptions="Center"
+                                    Grid.Row="0" Grid.Column="3"
+                                    Clicked="DeleteTopic_Clicked" CommandParameter="{Binding .}"/>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+
+        <Button Text="+" FontSize="20" TextColor="Green" BackgroundColor="Silver"
+                    HorizontalOptions="Fill" VerticalOptions="Center"
+                   Grid.Row="4" Grid.Column="0"
+                   Clicked="Add_Topic"/>
+
+        <Button Text="Calculate Grade" FontSize="20" TextColor="Red" BackgroundColor="Silver"
+                    HorizontalOptions="Fill" VerticalOptions="Center"
+                   Grid.Row="4" Grid.Column="1"
+                   Clicked="Calculate_Grade_Clicked"/>
     </Grid>
+
+    </StackLayout>
+
 </ContentPage>

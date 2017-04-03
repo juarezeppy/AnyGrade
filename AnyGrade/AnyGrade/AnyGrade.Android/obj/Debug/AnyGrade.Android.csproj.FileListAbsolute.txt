@@ -70,5 +70,7 @@ C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyG
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade.Android\obj\Debug\res\drawable\settings.png
+C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade.Android\obj\Debug\res\drawable\delete-48.png
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade.Android\obj\Debug\AnyGrade.Android.dll.mdb
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade.Android\bin\Debug\AnyGrade.Android.dll.mdb

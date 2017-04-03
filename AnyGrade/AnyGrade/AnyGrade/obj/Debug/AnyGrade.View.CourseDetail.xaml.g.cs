@@ -17,12 +17,24 @@ namespace AnyGrade.View {
     public partial class CourseDetail : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label CourseLabel;
+        private global::Xamarin.Forms.Entry renameTopic;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Grid GridLayout;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label CourseGrade_Label;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView CourseList;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(CourseDetail));
-            CourseLabel = this.FindByName<global::Xamarin.Forms.Label>("CourseLabel");
+            renameTopic = this.FindByName<global::Xamarin.Forms.Entry>("renameTopic");
+            GridLayout = this.FindByName<global::Xamarin.Forms.Grid>("GridLayout");
+            CourseGrade_Label = this.FindByName<global::Xamarin.Forms.Label>("CourseGrade_Label");
+            CourseList = this.FindByName<global::Xamarin.Forms.ListView>("CourseList");
         }
     }
 }

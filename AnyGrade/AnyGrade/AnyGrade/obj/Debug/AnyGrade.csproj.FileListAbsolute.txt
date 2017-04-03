@@ -1,8 +1,10 @@
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\AnyGrade.dll
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\AnyGrade.pdb
+C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\Mono.Android.dll
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\Xamarin.Forms.Core.dll
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\Xamarin.Forms.Platform.dll
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\Mono.Android.xml
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\Xamarin.Forms.Core.pdb
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\Xamarin.Forms.Core.xml
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\Xamarin.Forms.Platform.pdb
@@ -11,7 +13,9 @@ C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyG
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\obj\Debug\AnyGrade.View.MainPage.xaml.g.cs
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\obj\Debug\AnyGrade.App.xaml.g.cs
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\obj\Debug\AnyGrade.View.CourseDetail.xaml.g.cs
+C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\obj\Debug\AnyGrade.View.AssignmentDetail.xaml.g.cs
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\obj\Debug\AnyGrade.dll
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\obj\Debug\AnyGrade.pdb
+C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\obj\Debug\AnyGrade.csprojResolveAssemblyReference.cache
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\obj\Debug\AnyGrade.dll.mdb
 C:\Users\juarezeppy\documents\visual studio 2017\Projects\AnyGrade\AnyGrade\AnyGrade\bin\Debug\AnyGrade.dll.mdb

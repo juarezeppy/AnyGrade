@@ -11,8 +11,13 @@
                     iOS="0, 20, 0, 0"
                     />
     </ContentPage.Padding>
+    
+    <StackLayout>
+        <Entry x:Name="renameCourse" Placeholder="Rename Course"
+                IsVisible="False"
+               Completed="RenameCourse_OnCompleted"/>
 
-    <Grid>
+        <Grid x:Name="GridLayout">
         <Grid.RowDefinitions>
             <RowDefinition Height="65" />
             <RowDefinition Height="*"/>
@@ -24,8 +29,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Frame OutlineColor="Black" Grid.Row="0" Grid.ColumnSpan="2">
-            <Label Text= "My Courses" FontSize="20" TextColor="Black" HorizontalTextAlignment="Center"/>
+        <Frame OutlineColor="Black" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#333333">
+            <Label Text= "Course List" FontSize="20" TextColor="White" HorizontalTextAlignment="Center"/>
         </Frame>
 
         <Frame OutlineColor="Black" Grid.Row="1" Grid.ColumnSpan="2">
@@ -40,20 +45,38 @@
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
+                                    <RowDefinition Height="40"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="75" />
                                 </Grid.ColumnDefinitions>
 
                                 <!--THIS LAYOUT ENSURES THAT COURSE LISTINGS ARE PROPERLY FORMATTED-->
-                                <Label x:Name="CourseLabel" FontSize="16" Text="{Binding Name}" 
+                                    <Label x:Name="CourseLabel" FontSize="16" Text="{Binding CourseName}" 
                                     TextColor="Black" VerticalOptions="Center"
-                                    Grid.Row="0" Grid.Column="0"/>
+                                    Grid.Row="0" Grid.ColumnSpan="3" />
+                                
+                                    <Label FontSize="9" Text="Grade: " 
+                                    TextColor="Black" HorizontalOptions="Start" VerticalOptions="End"
+                                    Grid.Row="1" Grid.Column="0" />
+                                    <Label x:Name="CourseLabelGrade" FontSize="9" Text="{Binding CourseGrade}" 
+                                    TextColor="Black" HorizontalOptions="Start" VerticalOptions="End"
+                                    Grid.Row="1" Grid.Column="1" />
+                                    <Label FontSize="9" Text="AVG: "
+                                    TextColor="Black" HorizontalOptions="End" VerticalOptions="End"
+                                    Grid.Row="1" Grid.Column="2" />
+                                    <Label x:Name="CourseLabelAVG" FontSize="9" Text="{Binding GradePercentage}" 
+                                    TextColor="Black" HorizontalOptions="Start" VerticalOptions="End"
+                                    Grid.Row="1" Grid.Column="3" />
 
-                                <Button FontSize="14" Text="X" TextColor="Black" 
-                                    Clicked="DeleteCourse_Clicked" HorizontalOptions="EndAndExpand"
-                                    Grid.Row="0" Grid.Column="1" CommandParameter="{Binding .}"/>
+                                    <Button x:Name="CourseSettingsImage" Text="X" Image="settings.png"  
+                                Clicked="DeleteCourse_Clicked" HorizontalOptions="Center" Scale=".65" VerticalOptions="Center"
+                                Grid.RowSpan="2" Grid.Column="4" CommandParameter="{Binding .}">
+                                </Button>
                             </Grid>
 
                         </ViewCell>
@@ -68,4 +91,7 @@
                    Grid.Row="2" Grid.ColumnSpan="2"
                    Clicked="Add_Course"/>
     </Grid>
+
+    </StackLayout>
+
 </ContentPage>
