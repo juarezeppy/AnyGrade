@@ -44,7 +44,6 @@ namespace AnyGrade.Model
 
         public string CalculateAverage()
         {
-
             if (AssignmentlisList.Count == 0)
             {
                 return "empty list";
@@ -59,7 +58,9 @@ namespace AnyGrade.Model
             {
                 earnedPoints += Convert.ToDouble(VARIABLE.AssignmentGrade);
             }
-            average = Convert.ToString(earnedPoints / totalPossiblePoints);
+
+            average = (earnedPoints / totalPossiblePoints).ToString("F");
+
             Debug.WriteLine("Average is now: " + average);
 
             return average;

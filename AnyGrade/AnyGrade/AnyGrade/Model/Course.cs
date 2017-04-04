@@ -24,7 +24,6 @@ namespace AnyGrade
         public Course()
         {
             CourseName = "New Course";
-            CourseGrade = "Z";
             TopicList = new ObservableCollection<Topics>();
         }
 

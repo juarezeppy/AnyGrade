@@ -21,6 +21,7 @@
                 <RowDefinition Height="65" />
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50" />
+                <RowDefinition Height="80" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -34,7 +35,9 @@
 
             <Frame OutlineColor="Black" Grid.Row="1" Grid.ColumnSpan="2">
 
-                <ListView x:Name="AssignmentList"  HasUnevenRows="True">
+                <ListView x:Name="AssignmentList"  HasUnevenRows="True"
+                          ItemSelected="AssignmentList_OnItemSelected"
+                          ItemTapped="AssignmentList_OnItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -78,6 +81,11 @@
                     HorizontalOptions="Fill" VerticalOptions="Center"
                    Grid.Row="2" Grid.ColumnSpan="2"
                    Clicked="Button_AddAssignment"/>
+
+            <Button Text="ADD GOES HERE"  FontSize="20" TextColor="Green" BackgroundColor="Silver"
+                HorizontalOptions="Fill" VerticalOptions="Center"
+                Grid.Row="3" Grid.ColumnSpan="2"
+               />
         </Grid>
 
     </StackLayout>

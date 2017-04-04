@@ -26,6 +26,12 @@ namespace AnyGrade
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            CourseList.ItemsSource = null;
+            CourseList.ItemsSource = vm.GetCourseList;
+        }
+
 
         private async void CourseList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -59,9 +65,8 @@ namespace AnyGrade
             {
                 var course = (sender as Button).CommandParameter as Course;
 
-
-                GridLayout.IsVisible = false;
                 renameCourse.IsVisible = true;
+                renameCourse.Focus();
 
                 index = vm.Courses.IndexOf(course);
             }
@@ -78,7 +83,6 @@ namespace AnyGrade
             vm.Courses[index].CourseName = renameCourse.Text;
             renameCourse.Text = "";
 
-            GridLayout.IsVisible = true;
             renameCourse.IsVisible = false;
 
             CourseList.ItemsSource = null;

@@ -26,6 +26,9 @@ namespace AnyGrade.View {
         private global::Xamarin.Forms.Label CourseGrade_Label;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label CourseAVG_Label;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ListView CourseList;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -34,6 +37,7 @@ namespace AnyGrade.View {
             renameTopic = this.FindByName<global::Xamarin.Forms.Entry>("renameTopic");
             GridLayout = this.FindByName<global::Xamarin.Forms.Grid>("GridLayout");
             CourseGrade_Label = this.FindByName<global::Xamarin.Forms.Label>("CourseGrade_Label");
+            CourseAVG_Label = this.FindByName<global::Xamarin.Forms.Label>("CourseAVG_Label");
             CourseList = this.FindByName<global::Xamarin.Forms.ListView>("CourseList");
         }
     }

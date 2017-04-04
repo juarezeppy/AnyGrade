@@ -55,7 +55,7 @@
                     Grid.Row="0" Grid.Column="1"/>
             <Label Text="Average: " FontSize="10" TextColor="White" HorizontalTextAlignment="End" VerticalTextAlignment="Start"
                     Grid.Row="0" Grid.Column="2"/>
-            <Label Text="{Binding GradePercentage} " FontSize="13" TextColor="Red" 
+            <Label  x:Name="CourseAVG_Label" Text="{Binding GradePercentage} " FontSize="13" TextColor="Red" 
                     HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
                     Grid.Row="0" Grid.Column="3"/>
         </Grid>

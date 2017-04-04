@@ -86,5 +86,17 @@ namespace AnyGrade.View
             }
             Debug.WriteLine("pageTopic average is now: " + pageTopic.average);
         }
+
+        private void AssignmentList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+
+            AssignmentList.SelectedItem = null;
+        }
+
+        private void AssignmentList_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+        }
     }
 }

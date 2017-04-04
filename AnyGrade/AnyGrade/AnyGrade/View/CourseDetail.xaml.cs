@@ -39,15 +39,16 @@ namespace AnyGrade.View
         }
 
         //this needs to navigate to a assignment list page
-        async public void CourseList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public async void CourseList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
                 return;
 
             var topic = e.SelectedItem as Topics;
+            CourseList.SelectedItem = null;
+
             await Navigation.PushAsync(new AssignmentDetail(ref topic));
 
-            CourseList.SelectedItem = null;
         }
 
         private void Add_Topic(object sender, EventArgs e)
@@ -89,12 +90,11 @@ namespace AnyGrade.View
 
             course.CourseGrade = course.CalculateGrade();
 
+            //refresh page consider making this a function
             CourseList.ItemsSource = null;
             CourseList.ItemsSource = course.GetTopicList;
-
-            //need a way to refresh this 
-            CourseGrade_Label.BindingContext = null;
-            CourseGrade_Label.BindingContext = course.CourseGrade;
+            CourseGrade_Label.Text = course.CourseGrade;
+            CourseAVG_Label.Text = course.GradePercentage;
         }
 
         

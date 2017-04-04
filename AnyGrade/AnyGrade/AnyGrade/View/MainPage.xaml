@@ -22,6 +22,8 @@
             <RowDefinition Height="65" />
             <RowDefinition Height="*"/>
             <RowDefinition Height="50" />
+            <RowDefinition Height="80" />
+
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -86,11 +88,17 @@
 
         </Frame>
 
-        <Button Text="+" FontSize="20" TextColor="Green" BackgroundColor="Silver"
-                    HorizontalOptions="Fill" VerticalOptions="Center"
-                   Grid.Row="2" Grid.ColumnSpan="2"
-                   Clicked="Add_Course"/>
-    </Grid>
+            <Button Text="+" FontSize="20" TextColor="Green" BackgroundColor="Silver"
+                HorizontalOptions="Fill" VerticalOptions="Center"
+                Grid.Row="2" Grid.ColumnSpan="2"
+                Clicked="Add_Course"/>
+
+            <Button Text="ADD GOES HERE"  FontSize="20" TextColor="Green" BackgroundColor="Silver"
+                HorizontalOptions="Fill" VerticalOptions="Center"
+                Grid.Row="3" Grid.ColumnSpan="2"
+               />
+
+        </Grid>
 
     </StackLayout>
 
